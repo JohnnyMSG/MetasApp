@@ -1,5 +1,5 @@
 let inputNovaMeta = document.querySelector('#inputNovaMeta');
-let btnAddMeta = document.querySelector('#btnAddMetas');
+let btnAddMeta = document.querySelector('#btnAddMeta');
 let listaMetas = document.querySelector('#listaMetas');
 let janelaEdicao = document.querySelector('#janelaEdicao');
 let janelaEdicaoFundo = document.querySelector('#janelaEdicaoFundo');
@@ -23,7 +23,7 @@ janelaEdicaoBtnFechar.addEventListener('click', (e)=> {
     alternarJanelaEdicao();
 });
 
-btnAddMetas.addEventListener('click', (e) => {
+btnAddMeta.addEventListener('click', (e) => {
 
         let meta = {
             nome: inputNovaMeta.value,
@@ -36,14 +36,12 @@ btnAtualizarMeta.addEventListener('click', (e) => {
     e.preventDefault();
 
     let idMeta = idMetaEdicao.innerHTML.replace('#', '');
-    console.log(idMeta)
     let meta = {
         nome: inputMetaNomeEdicao.value, 
         id: idMeta
     }
 
     let metaAtual = document.getElementById(''+idMeta+'');
-    console.log(metaAtual)
     if(metaAtual) {
         let li = criarTagLI(meta);
     listaMetas.replaceChild(li, metaAtual);
@@ -94,7 +92,6 @@ function criarTagLI(meta) {
 
 function editar(idMeta) {
     let li = document.getElementById(''+ idMeta +'');
-    console.log(li)
     if(li) {
         idMetaEdicao.innerHTML = '#' + idMeta;
         inputMetaNomeEdicao.value = li.innerText;
